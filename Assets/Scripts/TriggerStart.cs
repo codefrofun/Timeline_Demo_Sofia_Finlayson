@@ -7,32 +7,12 @@ public class TriggerStart : MonoBehaviour
 {
 
     public PlayableDirector playableDirector;
-    public AudioSource triggerSound;
-    public GameObject objectToActivate;
+   
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            playableDirector.Play();
-
-            if (triggerSound != null && !triggerSound.isPlaying)
-            {
-                triggerSound.Play();
-            }
-
-            if (objectToActivate != null)
-            {
-                objectToActivate.SetActive(true);
-            }
-        }
+        playableDirector.Play();
+        Debug.Log("Player is hitting trigger!");
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playableDirector.Pause();
-        }
-    }
+    
 }
